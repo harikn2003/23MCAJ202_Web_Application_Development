@@ -1,0 +1,11 @@
+body{
+    background-color: blanchedalmond;
+}
+.external-style {
+    background-color: lightyellow;
+    padding: 10px;
+    border-radius: 5px;
+}
+.something{
+    color: aquamarine;
+}

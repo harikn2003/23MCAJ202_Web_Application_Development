@@ -1,0 +1,72 @@
+/* Importing Fonts from Online */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    background: linear-gradient(to right, #ffcccb, #ff9999);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 45vh;
+    text-align: center;
+}
+
+.input-field {
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.radio {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.radio input[type="radio"] {
+    width: auto;
+}
+
+.radio label {
+    font-weight: 400;
+}
+
+button {
+    background: #ff6666;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #cc4444;
+    transform: scale(1.03);
+}
