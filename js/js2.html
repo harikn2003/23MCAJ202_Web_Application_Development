@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Changer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            transition: background-color 0.5s;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        #colorName {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Background Color Changer</h1>
+    
+    <button id="changeColorBtn">Change Color</button>
+    
+    <div id="colorName">Current color: white</div>
+    
+    <script>
+        // Get the button element
+        const button = document.getElementById("changeColorBtn");
+        
+        // Get the color name display element
+        const colorNameDisplay = document.getElementById("colorName");
+        
+        // Array of colors
+        const colors = [
+            "lightblue",
+            "lightgreen",
+            "lightpink",
+            "lightyellow",
+            "lavender",
+            "peachpuff"
+        ];
+        
+        // Counter to keep track of current color
+        let colorIndex = 0;
+        
+        // Add click event listener to the button
+        button.addEventListener("click", function() {
+            // Get the next color
+            const newColor = colors[colorIndex];
+            
+            // Change the background color
+            document.body.style.backgroundColor = newColor;
+            button.style.backgroundColor = newColor;
+            // Update the color name display
+            colorNameDisplay.textContent = "Current color: " + newColor;
+            
+            // Increment the counter
+            colorIndex++;
+            
+            // Reset counter if we've gone through all colors
+            if (colorIndex >= colors.length) {
+                colorIndex = 0;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            max-width: 500px;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .success {
+            color: green;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    
+    <form id="regForm">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <div class="error" id="usernameError">Username is required</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <div class="error" id="emailError">Valid email is required</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <div class="error" id="passwordError">Password must be at least 6 characters</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="confirm">Confirm Password:</label>
+            <input type="password" id="confirm" name="confirm">
+            <div class="error" id="confirmError">Passwords don't match</div>
+        </div>
+        
+        <button type="submit">Register</button>
+    </form>
+    
+    <div class="success" id="successMessage">
+        Registration successful!
+    </div>
+    
+    <script>
+        // Get the form element
+        const form = document.getElementById("regForm");
+        
+        // Add event listener for form submission
+        form.addEventListener("submit", function(event) {
+            // Prevent the form from submitting
+            event.preventDefault();
+            
+            // Hide all error messages
+            const errors = document.getElementsByClassName("error");
+            for(let i = 0; i < errors.length; i++) {
+                errors[i].style.display = "none";
+            }
+            
+            // Get form values
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirm = document.getElementById("confirm").value;
+            
+            // Flag to track validation
+            let isValid = true;
+            
+            // Validate username
+            if(username === "") {
+                document.getElementById("usernameError").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate email
+            if(email === "" || !email.includes("@"),!email.includes(".")) {
+                document.getElementById("emailError").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate password
+            if(password.length < 6) {
+                document.getElementById("passwordError").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate password confirmation
+            if(password !== confirm) {
+                document.getElementById("confirmError").style.display = "block";
+                isValid = false;
+            }
+            
+            // If all validations pass
+            if(isValid) {
+                // Hide the form
+                form.style.display = "none";
+                
+                // Show success message
+                document.getElementById("successMessage").style.display = "block";
+                
+                // You would typically submit the form data to a server here
+                console.log("Form submitted with:", {
+                    username: username,
+                    email: email,
+                    password: password
+                });
+            }
+        });
+    </script>
+</body> 
+</html>
